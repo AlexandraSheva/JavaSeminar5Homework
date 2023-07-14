@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Task1. Реализуйте структуру телефонной книги с помощью HashMap.
 Программа также должна учитывать, что во входной структуре будут повторяющиеся имена с разными телефонами, 
@@ -17,7 +20,7 @@
 public class Task1 {
 
   public static void main(String[] args) {
-    task1();
+    task2();
 
   }
 
@@ -36,5 +39,17 @@ public class Task1 {
 
   }
 
+  static void task2(){
+    PhonesBook phoneBook = new PhonesBook();
+    phoneBook.add("Петров", List.of ("+790000000000", "+792020202020","+793274374387"));
+    phoneBook.add("Иванов", List.of("+791111111111","+790000000001"));
+    phoneBook.add("Сидоров", List.of("+790000020202"));
+    phoneBook.add("Логвиненко", List.of("+793474832974"));
+    phoneBook.add("Симутенко", List.of ("+793287438757"));
+    
+
+    System.out.println(phoneBook.getAll());
+
+  }
 
 }
