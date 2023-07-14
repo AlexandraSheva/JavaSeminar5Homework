@@ -1,24 +1,25 @@
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class PhoneBook {
-  
-  private Map <String, String> map = new HashMap <> ();
+public class PhonesBook {
 
-  void add (String telNum, String lastName){
-    map.put(telNum, lastName) ;
-  }
-  
-  String getByTelNum (String telNum) {
-    return telNum + ":" + map.get(telNum);
+  private Map <String, List <String>> map = new HashMap <> ();
+
+  void add (String lastName, List<String> telNum){
+    map.put(lastName, telNum);
   }
 
-  String getByLastName (String lastName) {
+  String getByTelNum (String lastName) {
+    return lastName + ":" + map.get(lastName);
+  }
+
+  String getByLastName (List<String> telNum) {
     StringBuilder stringBuilder = new StringBuilder();
     for (Map.Entry entry:
     map.entrySet()) {
-      if(entry.getValue().equals(lastName)) {
+      if(entry.getValue().equals(telNum)) {
         stringBuilder.append(entry.getKey());
         stringBuilder.append(":");
         stringBuilder.append(entry.getValue());
@@ -30,9 +31,9 @@ public class PhoneBook {
   }
 
   String getAll() {
-    TreeMap<String, String> sorted = new TreeMap<>(map);
+    final TreeMap<String, List<String>> sorted = new TreeMap<>(map);
     return sorted.toString();
   }
 
-}
 
+}
